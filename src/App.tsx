@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { Input } from './components/Input';
+import { Checkbox, Textarea, Input } from 'components';
+
 import './App.css';
 
 function App() {
@@ -8,7 +9,9 @@ function App() {
     <div className="app">
       <header className="header">JSON forms builder</header>
       <div className="content">
-        <Input label="label" />
+        <Input label="Input" />
+        <Textarea label="Textarea" />
+        <Checkbox label="Checkbox" />
       </div>
     </div>
   );

@@ -2,12 +2,18 @@ import React, { useState } from 'react';
 
 import './Input.css';
 
-interface IInputProps {
+interface IInputProps
+  extends Omit<
+    React.HTMLProps<HTMLInputElement>,
+    'value' | 'onChange' | 'type' | 'defaultValue'
+  > {
   value?: string | number;
   label: string;
-  placeholder?: string;
   defaultValue?: string | number;
-  type?: 'text' | 'string';
+  type?: Extract<
+    React.HTMLInputTypeAttribute,
+    'text' | 'number' | 'file' | 'password' | 'email'
+  >;
   onChange?: (value: string | number) => void;
 }
 
@@ -15,9 +21,9 @@ export const Input = ({
   value,
   defaultValue,
   onChange,
-  placeholder,
   label,
   type = 'text',
+  ...props
 }: IInputProps) => {
   const [text, setText] = useState(value ?? defaultValue ?? '');
 
@@ -29,14 +35,14 @@ export const Input = ({
   };
 
   return (
-    <label className="container">
+    <label className="label-container">
       {label}
       <input
         className="input"
         type={type}
         value={text}
         onChange={handleChange}
-        placeholder={placeholder}
+        {...props}
       />
     </label>
   );

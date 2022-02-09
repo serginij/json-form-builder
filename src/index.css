@@ -7,8 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   --text-color: lightgray;
-  --text-font-size: 14px;
-  --input-font-size: 16px;
+  --text-size: 14px;
+  --text-line-height: 16px;
+
+  --primary: #93ea20;
+  --primary-light: #00dc42;
+  --white: #ffffff;
+  --secondary: #004550;
+
+  --light-gray: #f1f1f1;
+  --gray: #999999;
 }
 
 code {
@@ -159,4 +167,14 @@ a {
 
 p {
   color: lightgray;
+}
+
+.label-container {
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-size);
+  line-height: var(--text-line-heigh);
 }

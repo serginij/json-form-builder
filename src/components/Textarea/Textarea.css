@@ -1,4 +1,4 @@
-.input {
+.textarea {
   width: 250px;
   padding: 4px 6px;
   border-radius: 4px;
@@ -6,12 +6,15 @@
   height: 32px;
   font-size: var(--text-size);
   line-height: var(--text-line-heigh);
+  resize: vertical;
+  max-height: 400px;
+  min-height: 32px;
 }
 
-.input:hover {
+.textarea:hover {
   border-color: var(--primary-light);
 }
 
-.input:focus {
+.textarea:focus {
   outline-color: var(--primary-light);
 }

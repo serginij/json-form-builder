@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Checkbox.css';
 
@@ -21,6 +21,10 @@ export const Checkbox = ({
   ...props
 }: ICheckboxProps) => {
   const [checked, setChecked] = useState(value ?? defaultValue ?? false);
+
+  useEffect(() => {
+    setChecked(value ?? false);
+  }, [value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.checked;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Input.css';
 
@@ -26,6 +26,12 @@ export const Input = ({
   ...props
 }: IInputProps) => {
   const [text, setText] = useState(value ?? defaultValue ?? '');
+
+  useEffect(() => {
+    if (value !== undefined) {
+      setText(value);
+    }
+  }, [value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;

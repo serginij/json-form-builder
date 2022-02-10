@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './Textarea.css';
 
@@ -23,6 +23,12 @@ export const Textarea = ({
   ...props
 }: ITextareaProps) => {
   const [text, setText] = useState(value ?? defaultValue ?? '');
+
+  useEffect(() => {
+    if (value !== undefined) {
+      setText(value);
+    }
+  }, [value]);
 
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;

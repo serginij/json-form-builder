@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Checkbox, Textarea, Input } from 'components';
+import { Checkbox, Textarea, Input, Button, RadioGroup } from 'components';
 
 import './App.css';
 
@@ -12,6 +12,15 @@ function App() {
         <Input label="Input" />
         <Textarea label="Textarea" />
         <Checkbox label="Checkbox" />
+        <Button text="Cancel" variant="outlined" />
+        <Button>Ok</Button>
+        <RadioGroup
+          options={[
+            { label: 'One', value: 1 },
+            { label: 'Two', value: 2 },
+            { label: 'Three', value: 3 },
+          ]}
+        />
       </div>
     </div>
   );

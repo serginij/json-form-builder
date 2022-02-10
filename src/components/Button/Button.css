@@ -1,0 +1,30 @@
+.button {
+  min-width: 80px;
+  width: fit-content;
+  padding: 4px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--primary);
+  height: 32px;
+  font-size: var(--text-size);
+  line-height: var(--text-line-heigh);
+  cursor: pointer;
+  background-color: var(--primary);
+  color: var(--white);
+  font-weight: 700;
+}
+
+.button:focus {
+  outline-color: var(--primary-light);
+}
+
+.button_outlined {
+  background-color: transparent;
+  color: var(--primary);
+  border-width: 2px;
+}
+
+.button_outlined:hover {
+  color: var(--white);
+  background-color: var(--primary);
+  border-color: var(--primary);
+}

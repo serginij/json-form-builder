@@ -1,4 +1,4 @@
-.textarea {
+.datepicker {
   width: 250px;
   padding: 4px 6px;
   border-radius: 4px;
@@ -6,16 +6,14 @@
   height: 32px;
   font-size: var(--text-size);
   line-height: var(--text-line-heigh);
-  resize: vertical;
-  max-height: 400px;
-  min-height: 32px;
-  transition: border-color ease-in-out 0.2s;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
 }
 
-.textarea:hover {
+.datepicker:hover {
   border-color: var(--primary-light);
 }
 
-.textarea:focus {
+.datepicker:focus {
   outline-color: var(--primary-light);
 }

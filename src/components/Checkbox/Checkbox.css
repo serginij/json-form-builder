@@ -24,6 +24,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% 50%;
+  transition: border-color background-color ease-in-out 0.2s;
 }
 
 .checkbox:checked::before {

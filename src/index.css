@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --text-color: lightgray;
+  --text-color: #232323;
   --text-size: 14px;
   --text-line-height: 16px;
 
@@ -25,7 +25,7 @@ code {
 }
 
 p span {
-  color: lightgray;
+  color: gray;
   font-size: 14px;
   line-height: 16px;
 }
@@ -177,4 +177,11 @@ p {
   align-items: center;
   font-size: var(--text-size);
   line-height: var(--text-line-heigh);
+  color: var(--text-color);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }

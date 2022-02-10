@@ -54,12 +54,14 @@ interface IRadioGroupProps<T> {
   options: { value: T; label: string }[];
   onChange?: (value: T) => void;
   value?: T;
+  label: string;
 }
 
 export const RadioGroup = <T extends string | boolean | number>({
   options,
   value,
   onChange,
+  label,
 }: IRadioGroupProps<T>) => {
   const [selected, setSelected] = useState<T>(value as T);
 
@@ -75,16 +77,19 @@ export const RadioGroup = <T extends string | boolean | number>({
   };
 
   return (
-    <div className="row">
-      {options.map(({ value, label }, index) => (
-        <RadioItem
-          key={(value ?? index) as any}
-          value={value as any}
-          label={label}
-          checked={selected === value}
-          onChange={handleSelect}
-        />
-      ))}
-    </div>
+    <label className="label-container">
+      {label}
+      <div className="row">
+        {options.map(({ value, label }, index) => (
+          <RadioItem
+            key={(value ?? index) as any}
+            value={value as any}
+            label={label}
+            checked={selected === value}
+            onChange={handleSelect}
+          />
+        ))}
+      </div>
+    </label>
   );
 };

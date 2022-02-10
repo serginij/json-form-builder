@@ -6,6 +6,7 @@
   height: 32px;
   font-size: var(--text-size);
   line-height: var(--text-line-heigh);
+  transition: border-color ease-in-out 0.2s;
 }
 
 .input:hover {

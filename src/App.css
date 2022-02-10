@@ -14,8 +14,10 @@
 }
 
 .content {
-  margin: 32px;
-  width: 500px;
+  width: 100vw;
+  padding: 32px;
+  margin: auto;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   gap: 16px;

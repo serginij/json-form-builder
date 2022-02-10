@@ -8,8 +8,9 @@ interface ITextareaProps
     'value' | 'onChange' | 'defaultValue'
   > {
   value?: string;
-  label: string;
+  label?: string;
   defaultValue?: string;
+  className?: string;
 
   onChange?: (value: string) => void;
 }
@@ -20,6 +21,7 @@ export const Textarea = ({
   onChange,
   label,
   type = 'text',
+  className = '',
   ...props
 }: ITextareaProps) => {
   const [text, setText] = useState(value ?? defaultValue ?? '');
@@ -41,7 +43,7 @@ export const Textarea = ({
     <label className="label-container">
       {label}
       <textarea
-        className="textarea"
+        className={`textarea ${className}`}
         value={text}
         onChange={handleChange}
         {...props}

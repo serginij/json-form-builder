@@ -1,0 +1,16 @@
+.config-textarea {
+  width: 100%;
+  min-height: 400px;
+}
+
+.config {
+  width: 100%;
+  max-width: 500px;
+  padding: 32px;
+  margin: auto;
+  text-align: start;
+}
+
+.text {
+  margin-bottom: 4px;
+}

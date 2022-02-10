@@ -31,6 +31,7 @@ export const RadioItem = ({
     }
   };
 
+  // TODO: fix id regenerating
   const id = useGenerateId([]);
 
   return (

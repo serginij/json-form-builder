@@ -50,7 +50,7 @@ const TabButtons = ({ buttons, changeTab, activeTab }: ITabButtonsProps) => {
         return (
           <button
             key={button}
-            className={button === activeTab ? 'active' : ''}
+            className={`tab-button ${button === activeTab ? 'active' : ''}`}
             onClick={() => changeTab(button)}
           >
             {button}

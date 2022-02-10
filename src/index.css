@@ -24,8 +24,9 @@ code {
     monospace;
 }
 
-p span {
-  color: gray;
+p,
+span {
+  color: var(--text-color);
   font-size: 14px;
   line-height: 16px;
 }
@@ -165,8 +166,10 @@ a {
   color: inherit;
 }
 
-p {
-  color: lightgray;
+h1 {
+  color: var(--text-color);
+  font-size: 24px;
+  line-height: 30px;
 }
 
 .label-container {
@@ -184,4 +187,5 @@ p {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-wrap: wrap;
 }

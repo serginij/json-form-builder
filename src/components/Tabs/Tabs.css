@@ -6,10 +6,10 @@
 }
 
 .tab-buttons {
-  margin-bottom: 50px;
+  margin-bottom: 16px;
 }
 
-button {
+.tab-button {
   margin-right: 15px;
   font-size: 20px;
   background: transparent;

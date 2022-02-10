@@ -12,13 +12,3 @@
   color: var(--white);
   padding: 8px;
 }
-
-.content {
-  width: 100vw;
-  padding: 32px;
-  margin: auto;
-  max-width: 500px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}

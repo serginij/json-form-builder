@@ -1,18 +1,44 @@
-import React from 'react';
-
-import {
-  Checkbox,
-  Textarea,
-  Input,
-  Button,
-  RadioGroup,
-  Datepicker,
-  Tabs,
-} from 'components';
+import React, { useState } from 'react';
 
 import './App.css';
+import { Tabs } from 'components';
+import { Form, JsonEditor } from 'pages';
+import { IJsonForm } from 'types';
+
+const EMPTY_FORM = {
+  items: [],
+  controls: [],
+  title: '',
+};
 
 const App = () => {
+  const [form, setForm] = useState<IJsonForm>(EMPTY_FORM);
+
+  // TODO: make flexable
+  // TODO: check in chrome / safari / firefox
+
+  const handleChangeJson = (json: Record<string, any>) => {
+    // TODO: add deep checks
+    try {
+      const newForm: IJsonForm = EMPTY_FORM;
+
+      if (Array.isArray(json['items'])) {
+        newForm.items = json['items'];
+      }
+
+      if (Array.isArray(json['controls'])) {
+        newForm.controls = json['controls'];
+      }
+
+      if (typeof json?.title === 'string') {
+        newForm.title = json?.title;
+      }
+
+      setForm(newForm);
+      console.log(newForm);
+    } catch {}
+  };
+
   return (
     <div className="app">
       <header className="header">JSON forms builder</header>
@@ -20,35 +46,11 @@ const App = () => {
         tabs={[
           {
             label: 'Form',
-            Cmp: (
-              <div className="content">
-                <Input label="Input" />
-                <Input label="Number" type="number" />
-                <Textarea label="Textarea" />
-                <Checkbox label="Checkbox" />
-                <div className="row">
-                  <Button text="Cancel" variant="outlined" />
-                  <Button>Ok</Button>
-                </div>
-                <RadioGroup
-                  label="Radio"
-                  options={[
-                    { label: 'One', value: 1 },
-                    { label: 'Two', value: 2 },
-                    { label: 'Three', value: 3 },
-                  ]}
-                />
-                <Datepicker label="Datepicker" />
-              </div>
-            ),
+            Cmp: <Form form={form} />,
           },
           {
             label: 'Config',
-            Cmp: (
-              <div>
-                <p>Tab 2 content</p>
-              </div>
-            ),
+            Cmp: <JsonEditor onChangeJson={handleChangeJson} form={form} />,
           },
         ]}
       />

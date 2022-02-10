@@ -11,15 +11,15 @@ export enum ItemType {
 export interface IItem {
   label: string;
   type: ItemType;
+  options?: Array<{ label: string; value: any }>;
 }
 
 export interface IControl {
   text: string;
-  color: string;
-  onClick: () => void;
+  variant: 'contained' | 'outlined';
 }
 
-export interface JsonForm {
+export interface IJsonForm {
   items: IItem[];
   controls: IControl[];
   title: string;

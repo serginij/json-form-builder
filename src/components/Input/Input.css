@@ -7,12 +7,10 @@
   font-size: var(--text-size);
   line-height: var(--text-line-heigh);
   transition: border-color ease-in-out 0.2s;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
 }
 
 .input:hover {
   border-color: var(--primary-light);
-}
-
-.input:focus {
-  outline-color: var(--primary-light);
 }

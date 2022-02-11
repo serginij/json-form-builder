@@ -16,6 +16,7 @@
 
 .button:focus {
   outline-color: var(--primary-light);
+  -moz-outline-color: var(--primary-light);
 }
 
 .button_outlined {

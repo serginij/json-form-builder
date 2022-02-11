@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import { useGenerateId } from 'utils';
+
 import './Checkbox.css';
 
 interface ICheckboxProps
@@ -33,16 +35,21 @@ export const Checkbox = ({
     onChange?.(value);
   };
 
+  const id = useGenerateId([]);
+
   return (
-    <label className="label-container">
-      {label}
+    <>
       <input
         className="checkbox"
         checked={checked}
         onChange={handleChange}
         type="checkbox"
+        id={id}
         {...props}
       />
-    </label>
+      <label htmlFor={id} className="label-container">
+        {label}
+      </label>
+    </>
   );
 };

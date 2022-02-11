@@ -33,6 +33,13 @@ export interface IJsonForm {
 }
 ```
 
+## Project structure
+
+- `src/components` - UI Components (Button, Checkbox, Datepicker, etc.)
+- `src/pages` - Content pages (JsonEditor, Form)
+- `src/utils` - Helper functions
+- `src/test` - Tests
+
 ## Available Scripts
 
 In the project directory, you can run:

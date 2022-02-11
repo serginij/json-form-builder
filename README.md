@@ -10,7 +10,7 @@ export enum ItemType {
   TEXT = 'text', // text input
   TEXTAREA = 'textarea', // textarea
   CHECKBOX = 'checkbox', // checkbox
-  DATE = 'date', // built in datepickeer
+  DATE = 'date', // built in datepicker
   RADIO = 'radio', // radio buttons
   BUTTON = 'button', // button
 }
@@ -63,4 +63,3 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!

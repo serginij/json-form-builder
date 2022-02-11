@@ -34,3 +34,9 @@
 .helperText__error {
   color: var(--red);
 }
+
+@media (max-width: 530px) {
+  .textarea {
+    width: 100%;
+  }
+}

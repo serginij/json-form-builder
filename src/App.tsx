@@ -11,8 +11,6 @@ import { EMPTY_FORM } from './constants';
 const App = () => {
   const [form, setForm] = useState<IJsonForm>(EMPTY_FORM);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  // TODO: make flexable
-  // TODO: check in chrome / safari / firefox
 
   const handleChangeJson = async (json: Record<string, any>) => {
     try {

@@ -14,3 +14,9 @@
 .input:hover {
   border-color: var(--primary-light);
 }
+
+@media (max-width: 530px) {
+  .input {
+    width: 100%;
+  }
+}

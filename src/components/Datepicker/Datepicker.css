@@ -17,3 +17,9 @@
 .datepicker:focus {
   outline-color: var(--primary-light);
 }
+
+@media (max-width: 530px) {
+  .datepicker {
+    width: 100%;
+  }
+}

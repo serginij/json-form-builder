@@ -14,3 +14,9 @@
 .text {
   margin-bottom: 4px;
 }
+
+@media (max-width: 530px) {
+  .config {
+    padding: 16px;
+  }
+}

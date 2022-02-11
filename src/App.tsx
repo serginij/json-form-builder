@@ -13,7 +13,6 @@ const App = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   // TODO: make flexable
   // TODO: check in chrome / safari / firefox
-  // TODO: write docs
 
   const handleChangeJson = async (json: Record<string, any>) => {
     try {

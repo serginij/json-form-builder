@@ -62,4 +62,61 @@ Launches the test runner in the interactive watch mode.\
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
+The build is minified and the filenames include the hashes.
+
+## JSON Sample
+
+```json
+{
+  "items": [
+    {
+      "label": "Text",
+      "type": "text"
+    },
+    {
+      "label": "Number",
+      "type": "number"
+    },
+    {
+      "label": "Checkbox",
+      "type": "checkbox"
+    },
+    {
+      "label": "Textarea",
+      "type": "textarea"
+    },
+    {
+      "label": "Date",
+      "type": "date"
+    },
+    {
+      "label": "Radio",
+      "type": "radio",
+      "options": [
+        {
+          "label": "One",
+          "value": 1
+        },
+        {
+          "label": "Two",
+          "value": 2
+        },
+        {
+          "label": "Three",
+          "value": 3
+        }
+      ]
+    }
+  ],
+  "controls": [
+    {
+      "text": "Cancel",
+      "variant": "outlined"
+    },
+    {
+      "text": "Ok"
+    }
+  ],
+  "title": "Title"
+}
+```

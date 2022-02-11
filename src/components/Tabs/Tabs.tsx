@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import './Tabs.css';
 
@@ -24,6 +24,11 @@ export const Tabs: React.FC<ITabsProps> = ({ tabs }) => {
     setActiveTab(tab);
     setContent(tabsMap.get(tab) || null);
   };
+
+  useEffect(() => {
+    setContent(tabsMap.get(activeTab) || null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tabs]);
 
   return (
     <div>

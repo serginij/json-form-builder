@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
-import { useGenerateId } from 'utils';
+import { generateId } from 'utils';
 
 import './Radio.css';
 
@@ -11,28 +11,22 @@ interface IRadioItemProps
   > {
   label: string;
   checked: boolean;
-  onChange?: (value: any) => void;
+  id: string;
+  onChange?: (id: string) => void;
 }
 
 export const RadioItem = ({
   onChange,
   label,
   checked,
+  id,
   ...props
 }: IRadioItemProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value } = e.target;
-    try {
-      const parsed = JSON.parse(value);
+    const { id } = e.target;
 
-      onChange?.(parsed);
-    } catch {
-      onChange?.(value);
-    }
+    onChange?.(id);
   };
-
-  // TODO: fix id regenerating
-  const id = useGenerateId([]);
 
   return (
     <>
@@ -64,29 +58,47 @@ export const RadioGroup = <T extends string | boolean | number>({
   onChange,
   label,
 }: IRadioGroupProps<T>) => {
-  const [selected, setSelected] = useState<T>(value as T);
+  const [selected, setSelected] = useState('');
+
+  const optionsById = useMemo(
+    () =>
+      new Map(
+        options.map((option) => {
+          const id = generateId();
+          return [id, { ...option, id }];
+        }),
+      ),
+    [options],
+  );
+
+  const optionsWithId = useMemo(
+    () => Array.from(optionsById.values()),
+    [optionsById],
+  );
 
   useEffect(() => {
     if (value) {
-      setSelected(value);
+      const option = optionsWithId.find((option) => option.value === value);
+      option && setSelected(option.id);
     }
-  }, [value]);
+  }, [value, optionsWithId]);
 
-  const handleSelect = (value: T) => {
-    setSelected(value);
-    onChange?.(value);
+  const handleSelect = (id: string) => {
+    setSelected(id);
+    onChange?.(optionsById.get(id)?.value ?? ('' as T));
   };
 
   return (
     <label className="label-container">
       {label}
       <div className="row">
-        {options.map(({ value, label }, index) => (
+        {optionsWithId.map(({ value, label, id }, index) => (
           <RadioItem
-            key={(value ?? index) as any}
+            key={id}
+            id={id}
             value={value as any}
             label={label}
-            checked={selected === value}
+            checked={selected === id}
             onChange={handleSelect}
           />
         ))}

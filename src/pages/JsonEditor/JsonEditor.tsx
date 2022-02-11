@@ -6,10 +6,16 @@ import { stringifyJson } from 'utils';
 
 interface IJsonEditorProps {
   form: Record<string, any>;
-  onChangeJson: (json: Record<string, any>) => void;
+  errors: Record<string, string>;
+
+  onChangeJson: (json: Record<string, any>) => Promise<void>;
 }
 
-export const JsonEditor = ({ onChangeJson, form }: IJsonEditorProps) => {
+export const JsonEditor = ({
+  onChangeJson,
+  form,
+  errors,
+}: IJsonEditorProps) => {
   const [text, setText] = useState(stringifyJson(form));
 
   const handleChange = (text: string) => {
@@ -22,6 +28,8 @@ export const JsonEditor = ({ onChangeJson, form }: IJsonEditorProps) => {
     }
   };
 
+  const errorsList = Object.values(errors);
+
   return (
     <div className="config">
       <div>
@@ -30,6 +38,8 @@ export const JsonEditor = ({ onChangeJson, form }: IJsonEditorProps) => {
           value={text}
           onChange={handleChange}
           className="config-textarea"
+          error={errorsList.length > 0}
+          helperText={errorsList.join('\n')}
         />
       </div>
     </div>

@@ -19,3 +19,18 @@
 .textarea:focus {
   outline-color: var(--primary-light);
 }
+
+.helperText {
+  color: var(--gray);
+  font-size: 12px;
+  padding-top: 4px;
+  line-height: 14px;
+}
+
+.textarea__error {
+  border-color: var(--red);
+}
+
+.helperText__error {
+  color: var(--red);
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+import clsx from 'clsx';
 import './Textarea.css';
 
 interface ITextareaProps
@@ -11,6 +12,8 @@ interface ITextareaProps
   label?: string;
   defaultValue?: string;
   className?: string;
+  error?: boolean;
+  helperText?: string;
 
   onChange?: (value: string) => void;
 }
@@ -22,6 +25,8 @@ export const Textarea = ({
   label,
   type = 'text',
   className = '',
+  error,
+  helperText,
   ...props
 }: ITextareaProps) => {
   const [text, setText] = useState(value ?? defaultValue ?? '');
@@ -40,14 +45,21 @@ export const Textarea = ({
   };
 
   return (
-    <label className="label-container">
-      {label}
-      <textarea
-        className={`textarea ${className}`}
-        value={text}
-        onChange={handleChange}
-        {...props}
-      />
-    </label>
+    <>
+      <label className="label-container">
+        {label}
+        <textarea
+          className={clsx('textarea', error && 'textarea__error', className)}
+          value={text}
+          onChange={handleChange}
+          {...props}
+        />
+      </label>
+      {helperText && (
+        <span className={clsx('helperText', error && 'helperText__error')}>
+          {helperText}
+        </span>
+      )}
+    </>
   );
 };

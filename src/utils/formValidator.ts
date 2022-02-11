@@ -14,7 +14,7 @@ const validationSchema = yup.object().shape({
       variant: yup.string().oneOf(['contained', 'outlined']),
     }),
   ),
-  title: yup.string(),
+  title: yup.string().nullable(),
   items: yup.array().of(
     yup.object().shape({
       label: yup.string().trim().required('Label required'),
